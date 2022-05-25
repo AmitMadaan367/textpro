@@ -105,40 +105,9 @@ def read(request):
 
 
 
-from io import BytesIO
-import base64
-import matplotlib.pyplot as plt
-import numpy as np
-
 
 def showimage(request):
-    global dict_graph
     data5=[]
-    for i,key in enumerate(dict_graph):
-        if i==0:
-            continue
-    #     print(dict_graph[key])    
-        plt.figure(figsize=(7,7))
-        plt.pie(dict_graph[key],labels=[key+'\nhighlighted',key+'\nunhighlighted'],shadow=True,autopct='%1.1f%%');
-    #     print(key)
-    #     g.show()
-        if key == 'total':
-            print("yes")
-            plt.title('Total HighLighted v/s Total UnHighLighted')
-        else:
-            print("no")
-            plt.title(f'{key.capitalize()} HighLighted v/s {key.capitalize()} UnHighLighted')
-
-
-        buffer = BytesIO()
-        plt.savefig(buffer, format='png')
-        buffer.seek(0)
-        image_png = buffer.getvalue()
-        buffer.close()
-
-        graphic = base64.b64encode(image_png)
-        graphic = graphic.decode('utf-8')
-        data5.append(graphic)
     return render(request, 'show.html',{'data5':data5})
 
 
