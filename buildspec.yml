@@ -10,11 +10,8 @@ phases:
       - python manage.py test
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on 'date'
 artifacts:
   files:
     - '**/*'
-cache:
-  paths:
-    - '/root/.cache/pip/**/*'
-    - '/var/cache/apt/archives/**/*'
+
