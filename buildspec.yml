@@ -3,6 +3,7 @@ phases:
   pre_build:
     commands:
       - echo "Before running tests"
+      - sudo ls /root
       - pip install -r requirements.txt
   build:
     commands:
@@ -14,4 +15,9 @@ phases:
 artifacts:
   files:
     - '**/*'
-
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'
+    - '/var/cache/apt/archives/**/*'
+    - '/var/lib/apt/lists/**/*'
+    - '/etc/apt/sources.list'
