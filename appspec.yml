@@ -2,18 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/backend
-  - source: server_configs/apache/backend.conf
-    destination: /etc/apache/sites-enabled/
-    runas: ubuntu
-  - source: server_configs/apache/backend.conf
-    destination: /etc/apache/sites-available/
-    runas: ubuntu
-  - source: server_configs/supervisor/backend_supervisor.conf
-    destination: /etc/supervisor/conf.d
-    runas: ubuntu
-
-
+    destination: /var/www/html
 hooks:
   BeforeInstall:
       - location: before_install.sh

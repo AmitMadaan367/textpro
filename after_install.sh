@@ -1,8 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Restart services
-sudo service supervisor restart
-
 sudo service apache2 restart
 
 
