@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+cd /var/www/html
+
+source env/bin/activate
+
 pip install -r requirements.txt
 # Restart services
 
