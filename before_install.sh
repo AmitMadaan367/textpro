@@ -1,4 +1,8 @@
-sudo apt-get update
-sudo apt-get install -y python3 python-dev python3-pip apache2
-pip install --user --upgrade virtualenv
+sudo apt update
+sudo apt install python3-pip python3-dev apache2 -y
+pip install virtualenv
+virtualenv env
+source env/bin/activate
+pip install django gunicorn
+
 sudo rm -rf /var/www/backend

@@ -4,10 +4,15 @@ virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py collectstatic --no-input
+sudo fuser -k 8000/tcp
+gunicorn --bind 0.0.0.0:8000 first.wsgi &>/dev/null & 
 
 # Set permission for all files
 sudo chown -R www-data:www-data /var/www/
 
 # Restart services
 sudo service apache2 restart
+
+
+
+

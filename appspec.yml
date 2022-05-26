@@ -6,6 +6,8 @@ files:
   
 hooks:
   BeforeInstall:
-      - location: server_configs/scripts/before_install.sh
+      - location: before_install.sh
+        timeout: 300
   AfterInstall:
-      - location: server_configs/scripts/after_install.sh
+      - location: after_install.sh
+        timeout: 300
