@@ -4,5 +4,3 @@ pip install virtualenv
 virtualenv env
 source env/bin/activate
 pip install django gunicorn
-
-sudo rm -rf /var/www/backend
