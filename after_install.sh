@@ -3,6 +3,8 @@ cd /var/www/html
 
 source env/bin/activate
 
+cd textpro
+
 pip install -r requirements.txt
 
 
