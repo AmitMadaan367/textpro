@@ -2,7 +2,7 @@
 pip install -r requirements.txt
 # Restart services
 
-mv /home/ubuntu/apac.conf /etc/nginx/sites-available 
+mv /var/www/html/apac.conf /etc/apache2/sites-available 
 
 sudo ln -s /etc/apache2/sites-available/apac.conf /etc/apache2/sites-enabled/
 
