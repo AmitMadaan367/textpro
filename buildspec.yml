@@ -3,6 +3,7 @@ phases:
   pre_build:
     commands:
       - echo "Before running tests"
+      - sudo ls /root
       - pip install -r requirements.txt
   build:
     commands:
