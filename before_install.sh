@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 mkdir textpro
 cd /var/www/html/textpro
 apt update
