@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 cd /var/www/html/textpro
 
 source env/bin/activate
