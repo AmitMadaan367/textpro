@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-cd /var/www/html
+cd /var/www/html/textpro
 
 source env/bin/activate
-mkdir textpro
-cd textpro
+
 
 pip install -r requirements.txt
 
