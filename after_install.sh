@@ -1,5 +1,6 @@
 #!/bin/bash
 cd /var/www/html/textpro
+sudo rm -r env
 python3 -m venv env
 
 source env/bin/activate
