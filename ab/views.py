@@ -116,3 +116,11 @@ def showimage(request):
 
 
 
+from celery.schedules import crontab
+from django.http.response import HttpResponse
+from .tasks import test_func
+import json
+# Create your views here.
+def test(request):
+    test_func.delay()
+    return HttpResponse("Done")
