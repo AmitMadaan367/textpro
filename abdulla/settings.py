@@ -156,14 +156,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # CELERY SETTINGS
+accept_content = ['application/json']
+CELERY_BROKER_URL = "redis://redis:6379"
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kolkata'
 
-CELERY_RESULT_BACKEND = 'django-db'
+timezone = 'Asia/Kolkata'
+result_backend = 'json'
+
+task_serializer = 'json'
+
+result_backend = 'django-db'
 
 #CELERY BEAT
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
