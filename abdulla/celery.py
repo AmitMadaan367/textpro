@@ -23,7 +23,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'run-fun-every-day-at time': {
         'task': 'ab.tasks.test_func',
-        'schedule': crontab(hour=17, minute=39),
+        'schedule': crontab(hour='*', minute='*/1'),
         #'args': (2,)
     }
     
