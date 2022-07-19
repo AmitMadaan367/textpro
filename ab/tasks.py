@@ -16,7 +16,7 @@ def test_func(self):
     from pprint import pprint
 
     configuration = sib_api_v3_sdk.Configuration()
-    configuration.api_key['api-key'] = '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'
+    configuration.api_key['api-key'] = 'bb'
 
     api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
     subject = 'Email from celery beat from Amit bot'
