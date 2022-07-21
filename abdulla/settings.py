@@ -20,12 +20,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$l&jy64my4eo^lzb9#=(gwiyz)w45-w*9faq((%p#rosr5mmta'
+# SECRET_KEY = '$l&jy64my4eo^lzb9#=(gwiyz)w45-w*9faq((%p#rosr5mmta'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+DEBUG = int(os.environ.get("DEBUG", default=0))
+print(DEBUG)
+
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+
+# Application definition
 
 
 # Application definition
@@ -153,21 +164,22 @@ STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 # STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
 
 
 # CELERY SETTINGS
+
 accept_content = ['application/json']
-# CELERY_BROKER_URL = "redis://redis:6379"
-CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 
-
+CELERY_BROKER_URL = "redis://redis:6379"
 
 timezone = 'Asia/Kolkata'
-result_backend = 'json'
 
 task_serializer = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
 
-result_backend = 'django-db'
+CELERY_RESULT_BACKEND = 'django-db'
 
 #CELERY BEAT
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
